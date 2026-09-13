@@ -2679,3 +2679,49 @@ html, body {
 .hero-slide {
     will-change: opacity, transform;
 }
+
+/* ============================================
+   WATCHMORE PWA POLISH
+   ============================================ */
+.logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    object-fit: cover;
+    flex: 0 0 auto;
+    box-shadow: 0 8px 24px rgba(94, 49, 255, .22);
+}
+.mobile-logo .logo-mark { width: 34px; height: 34px; border-radius: 9px; }
+.sidebar-logo .logo-mark { width: 42px; height: 42px; border-radius: 12px; }
+
+button, a, input, textarea, select { touch-action: manipulation; }
+button, .nav-item, .bottom-nav-item, .movie-card, .filter-chip, .content-tab {
+    -webkit-user-select: none;
+    user-select: none;
+}
+img { max-width: 100%; }
+.hero-slide { will-change: opacity; }
+.movie-poster img { content-visibility: auto; }
+.modal-overlay { overscroll-behavior: contain; }
+body {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.mobile-header {
+    padding-top: max(10px, env(safe-area-inset-top));
+}
+.bottom-nav {
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+    height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+    }
+}
+@media (max-width: 480px) {
+    .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .content-container { padding-left: 14px; padding-right: 14px; }
+}

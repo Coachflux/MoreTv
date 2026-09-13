@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="WatchMore - Stream Movies & TV Shows Free. The ultimate streaming experience.">
-    <meta name="theme-color" content="#0a0a0f">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="WATCHMORE — discover movies and TV shows, build your watchlist, and explore AI-powered entertainment features.">
+    <meta name="theme-color" content="#090816" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WatchMore">
@@ -12,12 +13,12 @@
     <meta name="application-name" content="WatchMore">
 
     <title>WatchMore - Movies & TV Shows</title>
-
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23e50914' width='180' height='180' rx='30'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='100' font-family='Arial'>🎬</text></svg>">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png"><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"><rect fill='%23e50914' width='180' height='180' rx='30'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='100' font-family='Arial'>🎬</text></svg>">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +37,7 @@
         <!-- Mobile Header -->
         <header class="mobile-header">
             <div class="mobile-logo" onclick="navigateTo('home')">
-                <span class="logo-icon">🎬</span>
+                <img class="logo-mark" src="assets/icon-192.png" alt="" width="40" height="40">
                 <span class="logo-text">Watch<span>More</span></span>
             </div>
             <div class="mobile-actions">
@@ -62,7 +63,7 @@
         <!-- Sidebar Navigation (Desktop) -->
         <aside class="sidebar">
             <div class="sidebar-logo" onclick="navigateTo('home')">
-                <span class="logo-icon">🎬</span>
+                <img class="logo-mark" src="assets/icon-192.png" alt="" width="40" height="40">
                 <span class="logo-text">Watch<span>More</span></span>
             </div>
 
@@ -736,7 +737,7 @@
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
+            navigator.serviceWorker.register('./sw.js', { scope: './' })
                 .then(reg => console.log('SW registered:', reg.scope))
                 .catch(err => console.log('SW failed:', err));
         }

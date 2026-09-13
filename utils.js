@@ -2,6 +2,8 @@
 // WATCHMORE - Utilities
 // ============================================
 
+// NOTE: TMDB browser keys are necessarily visible to users.
+// For production, use your own TMDB API key and restrict/rotate it as appropriate.
 const CONFIG = {
     TMDB_API_KEY: 'becc030248ec01bad5e0a45c4239fac3',
     TMDB_BASE_URL: 'https://api.themoviedb.org/3',
