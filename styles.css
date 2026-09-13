@@ -2725,3 +2725,23 @@ body {
     .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .content-container { padding-left: 14px; padding-right: 14px; }
 }
+
+/* ============================================
+   WATCHMORE LAUNCH SPLASH
+   ============================================ */
+.watchmore-splash{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 50% 42%,#21164a 0%,#100c24 35%,#090816 72%);color:#fff;transition:opacity .55s ease,visibility .55s ease;}
+.watchmore-splash.splash-hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.splash-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;animation:splashRise .75s ease-out both;}
+.splash-logo{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 0 28px rgba(139,92,246,.55));animation:splashPulse 2.2s ease-in-out infinite;}
+.splash-wordmark{margin-top:20px;font:800 32px/1 Outfit,Inter,sans-serif;letter-spacing:2px;}
+.splash-wordmark span{background:linear-gradient(90deg,#a855f7,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.splash-tagline{margin-top:9px;font:600 10px/1 Inter,sans-serif;letter-spacing:3px;color:rgba(255,255,255,.58);}
+.splash-loader{width:92px;height:3px;margin-top:30px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.1);}
+.splash-loader span{display:block;width:42%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#7c3aed,#ec4899,#38bdf8);animation:splashLoad 1.15s ease-in-out infinite;}
+.splash-glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.28;pointer-events:none;}
+.splash-glow-one{width:260px;height:260px;top:18%;left:12%;background:#7c3aed;}
+.splash-glow-two{width:240px;height:240px;right:8%;bottom:12%;background:#ec4899;}
+@keyframes splashRise{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes splashPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+@keyframes splashLoad{0%{transform:translateX(-120%)}100%{transform:translateX(300%)}}
+@media (prefers-reduced-motion:reduce){.splash-content,.splash-logo,.splash-loader span{animation:none}.watchmore-splash{transition:none}}

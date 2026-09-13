@@ -13,11 +13,13 @@
     <meta name="application-name" content="WatchMore">
 
     <title>WatchMore - Movies & TV Shows</title>
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png"><text y='.9em' font-size='90'>🎬</text></svg>">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"><rect fill='%23e50914' width='180' height='180' rx='30'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='100' font-family='Arial'>🎬</text></svg>">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#090816">
+    <meta name="theme-color" content="#090816">
     <meta name="mobile-web-app-capable" content="yes">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +35,17 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
 <body data-theme="dark">
+    <!-- WATCHMORE branded launch splash. It appears immediately on cold starts and fades into the app. -->
+    <div id="watchmore-splash" class="watchmore-splash" aria-label="WATCHMORE loading" role="status">
+        <div class="splash-glow splash-glow-one"></div>
+        <div class="splash-glow splash-glow-two"></div>
+        <div class="splash-content">
+            <img src="assets/icon-512.png" class="splash-logo" width="160" height="160" alt="WATCHMORE">
+            <div class="splash-wordmark">WATCH<span>MORE</span></div>
+            <div class="splash-tagline">MOVIES · SERIES · AI · MORE</div>
+            <div class="splash-loader" aria-hidden="true"><span></span></div>
+        </div>
+    </div>
     <div class="app">
         <!-- Mobile Header -->
         <header class="mobile-header">
@@ -761,5 +774,14 @@
         </div>
     </div>
 
+<script>
+(function(){
+  var splash=document.getElementById('watchmore-splash');
+  function hide(){ if(!splash) return; splash.classList.add('splash-hidden'); setTimeout(function(){splash.remove();},650); }
+  if(document.readyState==='complete') setTimeout(hide,350);
+  else window.addEventListener('load',function(){setTimeout(hide,350);},{once:true});
+  setTimeout(hide,3000);
+})();
+</script>
 </body>
 </html>
